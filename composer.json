@@ -1,0 +1,33 @@
+{
+	"name": "toadsuck/skeleton",
+	"description": "Skeleton Application for Toadsuck",
+	"homepage": "https://github.com/toadsuck/toadsuck-skeleton",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Josh Moody",
+			"email": "jgmoody@gmail.com"
+		}
+	],
+
+	"autoload":{
+		"psr-4":{
+			"Toadsuck\\Skeleton\\Tests\\": "tests/",
+			"Toadsuck\\Skeleton\\Controllers\\": "src/Controllers/"
+		}
+	},
+	
+	"require": {
+		"php": ">= 5.4",
+		"illuminate/database": "*",
+		"prelude/prelude-dsn": "*",
+		"toadsuck/core": "*"
+	},
+
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*",
+		"squizlabs/php_codesniffer": "1.*"
+	},
+	
+	"minimum-stability": "dev"
+}
