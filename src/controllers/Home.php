@@ -11,7 +11,7 @@ class Home extends Base
 	
 	public function index($id = null)
 	{
-		printf('In %s method with id = %s', __METHOD__, var_dump($id));
+		printf('In %s method with id = %s', __METHOD__, $id);
 	}
 	
 	public function foo($id = null)
