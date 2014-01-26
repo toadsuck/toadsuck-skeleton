@@ -18,9 +18,11 @@ class Home extends Base
 		$this->template->page_title = 'Toadsuck Skeleton';
 	}
 	
-	public function index($id = null)
+	public function index($name = null)
 	{
-		$this->template->output('home::index', ['heading' => 'Hello, world!!!!']);
+		$this->template->name = !empty($name) ? $name : 'World';
+		
+		$this->template->output('home::index', ['heading' => 'Congratulations, it worked!']); 
 	}
 	
 	public function foo($id = null)
