@@ -13,12 +13,14 @@ class Home extends Base
 		
 		// Set our default template.
 		$this->template->layout('layouts/default');
+		
+		// Set some variables for all views.
+		$this->template->page_title = 'Toadsuck Skeleton';
 	}
 	
 	public function index($id = null)
 	{
-		echo $this->view('home::index');
-		
+		$this->template->output('home::index', ['heading' => 'Hello, world!!!!']);
 	}
 	
 	public function foo($id = null)

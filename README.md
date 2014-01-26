@@ -1,7 +1,11 @@
 # Toadsuck.Skeleton
 
-Skeleton app implementing the [Toadsuck.Core](https://github.com/toadsuck/toadsuck-core) front controller from the
-[Toadsuck Project](http://toadsuck.github.io).
+Skeleton app implementing some of the features from [Toadsuck.Core](https://github.com/toadsuck/toadsuck-core) including:
+
+- Front Controller
+- Templates
+
+Learn more at [Toadsuck Project](http://toadsuck.github.io).
 
 ## Installation
 Installation of this package is easy with Composer. If you aren't familiar with the Composer Dependency Manager for PHP, [you should read this first](https://getcomposer.org/doc/00-intro.md).
@@ -34,3 +38,5 @@ web/
 	.htaccess (access the app without index.php in the url)
 	composer.json
 ```
+
+All controllers derive from Base Controller. This bootstraps the environment with things like templates and databases.

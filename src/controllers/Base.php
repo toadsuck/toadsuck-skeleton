@@ -1,6 +1,7 @@
 <?php
 
 namespace Toadsuck\Skeleton\Controllers;
+use Toadsuck\Core\Template;
 
 class Base
 {
@@ -16,16 +17,8 @@ class Base
 		// Set up our template engine.
 		$this->plates = new \League\Plates\Engine($this->resolvePath('views'));
 
-		// Load URI extension using global variable
-		$this->plates->loadExtension(new \League\Plates\Extension\URI($_SERVER['PATH_INFO']));
-
-		$this->assets_path = dirname($_SERVER['SCRIPT_FILENAME']) . '/';
-
-		// Load the asset extension.
-		$this->plates->loadExtension(new \League\Plates\Extension\Asset($this->assets_path, true));
-		
 		// Setup a template.
-		$this->template = new \League\Plates\Template($this->plates);
+		$this->template = new Template($this->plates);
 	}
 	
 	public function httpError($code = '404', $message = null)
@@ -43,7 +36,7 @@ class Base
 		
 		exit;
 	}
-	
+		
 	public function __call($method = null, $args = null)
 	{
 		$this->httpError('404', 'Method does not exist');
@@ -53,7 +46,7 @@ class Base
 	{
 		return $this->base_path . '/' . $resource;
 	}
-	
+		
 	protected function view($view, $data = null)
 	{
 		return $this->template->render($view, $data);
