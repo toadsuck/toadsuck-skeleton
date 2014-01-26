@@ -16,11 +16,14 @@ class Home extends Base
 		
 		// Set some variables for all views.
 		$this->template->page_title = 'Toadsuck Skeleton';
+		
+		// Load our primary config file.
+		$this->config->load('config');
 	}
 	
 	public function index($name = null)
 	{
-		$this->template->name = !empty($name) ? $name : 'World';
+		$this->template->name = !empty($name) ? $name : $this->config->get('default_name');
 		
 		$this->template->output('home::index', ['heading' => 'Congratulations, it worked!']); 
 	}

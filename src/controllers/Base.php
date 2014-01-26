@@ -8,6 +8,7 @@ class Base
 	public $plates = null;
 	public $template = null;
 	public $base_path = null;
+	public $config = null;
 		
 	public function __construct()
 	{
@@ -19,6 +20,12 @@ class Base
 
 		// Setup a template.
 		$this->template = new Template($this->plates);
+
+		// Set up configs.
+		class_alias('Fuel\Common\Arr', 'Arr');
+		$this->config = new \Fuel\Config\Container($this->getEnvironment());
+		$this->config->setConfigFolder('');
+		$this->config->addPath($this->resolvePath('config'));
 	}
 	
 	public function httpError($code = '404', $message = null)
@@ -44,11 +51,19 @@ class Base
 	
 	protected function resolvePath($resource)
 	{
-		return $this->base_path . '/' . $resource;
+		return rtrim($this->base_path . DIRECTORY_SEPARATOR . $resource, DIRECTORY_SEPARATOR);
 	}
-		
-	protected function view($view, $data = null)
+	
+	protected function getEnvironment()
 	{
-		return $this->template->render($view, $data);
+		$environment_file = $this->resolvePath('config/environment');
+		
+		if (file_exists($environment_file)) {
+			$environment = trim(file_get_contents($environment_file));
+		} else {
+			$environment = 'local';
+		}
+		
+		return $environment;
 	}
 }
