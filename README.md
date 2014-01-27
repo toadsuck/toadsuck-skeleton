@@ -94,6 +94,12 @@ $this->template->output('home/index', ['heading' => 'Congratulations, it worked!
 $content = $this->template->render('home/index', ['heading' => 'Congratulations, it worked!']);
 ```
 
+I've extended the standard Template class from Plates in 2 important ways:
+
+- 1) I've added the `output()` method so you can display the rendered view without an `echo` if you like.
+- 2) All variables are escaped before rendering/displaying the content to prevent cross site scripting.
+
+
 See the [Plates Project documentation](http://platesphp.com/) for more information on template usage.
 ## Database
 Database abstraction is handled by [Illuminate\Database](https://github.com/illuminate/database)

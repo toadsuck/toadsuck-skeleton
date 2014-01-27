@@ -43,4 +43,17 @@ class Home extends Base
 		$captains = Captain::all()->toArray();
 		$this->template->output('home/captains', ['captains' => $captains]);
 	}
+	
+	public function xss()
+	{
+		// We are protected against cross site scripting.
+		$this->template->name = "<script>alert('xss')</script>";
+		$array = [];
+		$array['foo'] = "<script>alert('foo')</script>";
+		$array['bar'] = "<script>alert('bar')</script>";
+		$this->template->array = $array;
+		$this->template->object = (object) $array; 
+		
+		$this->template->output('home/index', ['heading' => "XSS? Not on my watch."]);
+	}
 }
