@@ -70,6 +70,20 @@ $this->config->load('database');
 
 ```
 
+### Multiple Environment Support
+
+The configuration manager supports different configs for different environments (local, dev, test, prod, etc).
+To activate per-environment configs, create a sub-directory of `src/config` named the same as your environment.
+This directory should contain configuration files with any items from the main config you want to override in that environment.
+
+Example:
+
+	src/config/test/database.php
+
+You can tell the app which environment you are running in by modifying the content of `src/config/environment` to contain the name of your active environment.
+
+Then load your config as you normally would. The configuration items will be merged between the default config environment-specific overrides.
+
 See the [FuelPHP Docs](https://github.com/fuelphp/config/blob/master/README.md) for more information on configuration management.
 
 ## Templates
