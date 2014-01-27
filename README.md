@@ -37,7 +37,6 @@ src/
 		config.php
 		routes.php
 	controllers/
-		Base.php
 		Home.php
 	models/
 	views/
@@ -53,7 +52,7 @@ web/
 	composer.json
 ```
 
-All controllers derive from Base Controller. This bootstraps the environment with things like templates and databases.
+All controllers derive from Toadsuck\Core\Controller. This bootstraps the environment with things like templates and databases.
 
 ## Configuration
 The configuration manger is built on [FuelPHP\Config](https://github.com/fuelphp/config)

@@ -3,10 +3,11 @@
 namespace Toadsuck\Skeleton\Controllers;
 
 use Illuminate\Database\Capsule\Manager as Model;
+use Toadsuck\Core\Controller;
 use Toadsuck\Core\Database as DB;
 use Toadsuck\Skeleton\Models\Captain;
 
-class Home extends Base
+class Home extends Controller
 {
 	public function __construct()
 	{
@@ -56,4 +57,15 @@ class Home extends Base
 		
 		$this->template->output('home/index', ['heading' => "XSS? Not on my watch."]);
 	}
+	
+	public function go()
+	{
+		$this->redirect('home/xss');
+	}
+
+	public function external()
+	{
+		$this->redirect('http://google.com');
+	}
+
 }
