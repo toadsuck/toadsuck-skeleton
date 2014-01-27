@@ -13,7 +13,8 @@
 	"autoload":{
 		"psr-4":{
 			"Toadsuck\\Skeleton\\Tests\\": "tests/",
-			"Toadsuck\\Skeleton\\Controllers\\": "src/Controllers/"
+			"Toadsuck\\Skeleton\\Controllers\\": "src/Controllers/",
+			"Toadsuck\\Skeleton\\Models\\": "src/Models/"
 		}
 	},
 	

@@ -2,6 +2,10 @@
 
 namespace Toadsuck\Skeleton\Controllers;
 
+use Illuminate\Database\Capsule\Manager as Model;
+use Toadsuck\Core\Database as DB;
+use Toadsuck\Skeleton\Models\Captain;
+
 class Home extends Base
 {
 	public function __construct()
@@ -19,6 +23,12 @@ class Home extends Base
 		
 		// Load our primary config file.
 		$this->config->load('config');
+		
+		// And our database config file.
+		$this->config->load('database');
+		
+		// Initialize our database.
+		DB::init($this->config->get('dsn'));
 	}
 	
 	public function index($name = null)
@@ -28,8 +38,9 @@ class Home extends Base
 		$this->template->output('home::index', ['heading' => 'Congratulations, it worked!']); 
 	}
 	
-	public function foo($id = null)
+	public function captains()
 	{
-		printf('In %s method with id = %s', __METHOD__, $id);
+		$captains = Captain::all()->toArray();
+		$this->template->output('home::captains', ['captains' => $captains]);
 	}
 }
