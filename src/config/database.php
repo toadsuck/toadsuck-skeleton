@@ -23,7 +23,7 @@ $defaults = [
 	'prefix'	=> null
 ];
 # Any keys not provided in the dsn parameter below will default to the value shown above.
-*/		
+*/
 return [
 	'dsn' => [
 		'driver' => 'sqlite',

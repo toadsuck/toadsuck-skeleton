@@ -12,12 +12,9 @@ class Home extends Base
 	{
 		parent::__construct();
 
-		// Tell the template engine to look in views/home for our templates.
-		$this->plates->addFolder('home', $this->resolvePath('views/home'));
-		
 		// Set our default template.
 		$this->template->layout('layouts/default');
-		
+
 		// Set some variables for all views.
 		$this->template->page_title = 'Toadsuck Skeleton';
 		
@@ -35,12 +32,15 @@ class Home extends Base
 	{
 		$this->template->name = !empty($name) ? $name : $this->config->get('default_name');
 		
-		$this->template->output('home::index', ['heading' => 'Congratulations, it worked!']); 
+		$this->template->output('home/index', ['heading' => 'Congratulations, it worked!']);
+
+		// Instead of outputting the rendered content, you could return it:
+		//echo $this->template->render('home/index', ['heading' => 'Congratulations, it worked!']);
 	}
 	
 	public function captains()
 	{
 		$captains = Captain::all()->toArray();
-		$this->template->output('home::captains', ['captains' => $captains]);
+		$this->template->output('home/captains', ['captains' => $captains]);
 	}
 }

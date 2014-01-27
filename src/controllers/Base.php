@@ -1,7 +1,9 @@
 <?php
 
 namespace Toadsuck\Skeleton\Controllers;
+
 use Toadsuck\Core\Template;
+use Toadsuck\Core\Config;
 
 class Base
 {
@@ -14,18 +16,12 @@ class Base
 	{
 		// We need to know paths to our resources.
 		$this->base_path = dirname(__DIR__);
-		
-		// Set up our template engine.
-		$this->plates = new \League\Plates\Engine($this->resolvePath('views'));
 
-		// Setup a template.
-		$this->template = new Template($this->plates);
+		// Set up the template engine.
+		$this->template = new Template($this->resolvePath('views'));
 
 		// Set up configs.
-		class_alias('Fuel\Common\Arr', 'Arr');
-		$this->config = new \Fuel\Config\Container($this->getEnvironment());
-		$this->config->setConfigFolder('');
-		$this->config->addPath($this->resolvePath('config'));
+		$this->config = new Config($this->getEnvironment(), $this->resolvePath('config'));
 	}
 	
 	public function httpError($code = '404', $message = null)

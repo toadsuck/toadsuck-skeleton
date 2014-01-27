@@ -8,11 +8,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<? foreach($this->captains as $c):?>
+		<?php foreach($this->captains as $c):?>
 		<tr>
 			<td><?=$c['first_name']?></td>
 			<td><?=$c['last_name']?></td>
 		</tr>
-		<? endforeach;?>
+		<?php endforeach;?>
 	</tbody>
 </table>
