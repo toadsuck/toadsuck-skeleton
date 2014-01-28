@@ -7,11 +7,11 @@ Use this as a clean starting point in your Toadsuck-based projects.
 Briefly, the Toadsuck Project bundles the following components and lets them work together to form the 
 basic building blocks of a PHP application:
 
-- Routing - [Aura.Router](https://github.com/auraphp/Aura.Router)
-- HTTP Abstraction - [Symfony\HttpFoundation](https://github.com/symfony/HttpFoundation)
-- Templates - [Plates Native PHP Templates](http://platesphp.com/)
-- Database Abstraction - [Illuminate\Database](https://github.com/illuminate/database)
 - Configuration Management - [FuelPHP\Config](https://github.com/fuelphp/config)
+- Database Abstraction - [Illuminate\Database](https://github.com/illuminate/database)
+- HTTP Abstraction - [Symfony\HttpFoundation](https://github.com/symfony/HttpFoundation)
+- Routing - [Aura.Router](https://github.com/auraphp/Aura.Router)
+- Templates - [Plates Native PHP Templates](http://platesphp.com/)
 - Unit Tests - [PHPUnit](https://github.com/sebastianbergmann/phpunit) (of course, why use anything else?)
 
 Read the docs at <https://github.com/toadsuck/toadsuck-core/blob/master/README.md>
