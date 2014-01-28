@@ -1,15 +1,20 @@
 # Toadsuck.Skeleton
 
-Skeleton app implementing some of the features from [Toadsuck.Core](https://github.com/toadsuck/toadsuck-core) including:
+Skeleton PHP-MVC application implementing the components from the [Toadsuck Project](http://toadsuck.github.io).
+
+Use this as a clean starting point in your Toadsuck-based projects.
+
+Briefly, the Toadsuck Project bundles the following components and lets them work together to form the 
+basic building blocks of a PHP application:
 
 - Routing - [Aura.Router](https://github.com/auraphp/Aura.Router)
-- Templates - [Plates](http://platesphp.com/)
+- HTTP Abstraction - [Symfony\HttpFoundation](https://github.com/symfony/HttpFoundation)
+- Templates - [Plates Native PHP Templates](http://platesphp.com/)
 - Database Abstraction - [Illuminate\Database](https://github.com/illuminate/database)
-- Config Management - [FuelPHP\Config](https://github.com/fuelphp/config)
+- Configuration Management - [FuelPHP\Config](https://github.com/fuelphp/config)
 - Unit Tests - [PHPUnit](https://github.com/sebastianbergmann/phpunit) (of course, why use anything else?)
 
-
-Learn more at [The Toadsuck Project](http://toadsuck.github.io).
+Read the docs at <https://github.com/toadsuck/toadsuck-core/blob/master/README.md>
 
 ## Installation
 Installation of this package is easy with Composer. If you aren't familiar with the Composer Dependency Manager for PHP, [you should read this first](https://getcomposer.org/doc/00-intro.md).
@@ -25,123 +30,3 @@ Then you can create a new Toadsuck Skeleton project:
 ``` bash
 $ composer create-project toadsuck/skeleton your-project-name --stability=dev
 ```
-
-## Directory Structure
-
-```
-src/
-	config/
-		local/
-		test/
-		prod/
-		config.php
-		routes.php
-	controllers/
-		Home.php
-	models/
-	views/
-		home/
-			index.php
-		layouts/
-			default.php
-vendor/
-	Composer's installation directory
-web/
-	index.php
-	.htaccess (access the app without index.php in the url)
-	composer.json
-```
-
-All controllers derive from Toadsuck\Core\Controller. This bootstraps the environment with things like templates and databases.
-
-## Configuration
-The configuration manger is built on [FuelPHP\Config](https://github.com/fuelphp/config)
-
-### Basic Configuration Usage
-
-``` php
-// Load our primary config file.
-$this->config->load('config');
-
-$something = $this->config->get('something');
-
-// You can load any configuration file...
-$this->config->load('database');
-
-```
-
-### Multiple Environment Support
-
-The configuration manager supports different configs for different environments (local, dev, test, prod, etc).
-To activate per-environment configs, create a sub-directory of `src/config` named the same as your environment.
-This directory should contain configuration files with any items from the main config you want to override in that environment.
-
-Example:
-
-	src/config/test/database.php
-
-You can tell the app which environment you are running in by modifying the content of `src/config/environment` to contain the name of your active environment.
-
-Then load your config as you normally would. The configuration items will be merged between the default config environment-specific overrides.
-
-See the [FuelPHP Docs](https://github.com/fuelphp/config/blob/master/README.md) for more information on configuration management.
-
-## Templates
-Templates are powered by the [Plates Project](http://platesphp.com/), which is part of [The League of Extraordinary Packages](http://thephpleague.com/).
-
-Within this project, all themes and layouts live in `src/views`.
-
-### Basic Template Usage
-
-``` php
-// Set our default template.
-$this->template->layout('layouts/default');
-
-// Set some variables for all views.
-$this->template->page_title = 'Toadsuck Skeleton';
-
-// Render and Display the home/index view, passing a variable named "heading".
-$this->template->output('home/index', ['heading' => 'Congratulations, it worked!']);
-
-// Same as above, but return the rendered content instead of displaying.
-$content = $this->template->render('home/index', ['heading' => 'Congratulations, it worked!']);
-```
-
-I've extended the standard Template class from Plates in 2 important ways:
-
-- 1) I've added the `output()` method so you can display the rendered view without an `echo` if you like.
-- 2) All variables are escaped before rendering/displaying the content to prevent cross site scripting.
-
-
-See the [Plates Project documentation](http://platesphp.com/) for more information on template usage.
-## Database
-Database abstraction is handled by [Illuminate\Database](https://github.com/illuminate/database)
-
-You model:
-
-``` php
-# src/models/Widget.php
-
-namespace Toadsuck\Skeleton\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Widgets extends Model
-{
-	public $timestamps = false;
-}
-```
-
-In your controller:
-
-``` php
-use Toadsuck\Core\Database as DB;
-
-# DSN is pear-style DSN string: mysql://username:password@host/database
-DB::init($dsn);
-
-// To return all widgets:
-$widgets = Widgets::all()
-```
-
-See the [Laravel Documentation](http://laravel.com/docs/database) for more info on database usage.
