@@ -20,7 +20,7 @@
 
 	"require": {
 		"php": ">= 5.4",
-		"toadsuck/core": "*"
+		"toadsuck/core": "dev-master"
 	},
 
 	"require-dev": {
