@@ -21,26 +21,6 @@
 		<link href="//fonts.googleapis.com/css?family=Droid+Sans|Advent+Pro|Raleway" rel="stylesheet" type="text/css">
 
 		<link href="<?=$this->asset('/assets/css/site.css')?>" rel="stylesheet" type="text/css">
-
-		<style>
-/*
-		div.page {
-			background-color:#fff;
-			margin-top:40px;
-			margin-bottom:10px;
-			padding:0 20px;
-		}
-		
-		@media(min-width:768px) {
-			div.page {
-				margin-top:60px;
-				margin-bottom:10px;
-				padding:20px;
-			}
-		}
-*/
-		</style>
-		
 		</head>
 	<body>
 
