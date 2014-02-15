@@ -14,7 +14,10 @@
 		"psr-4":{
 			"Toadsuck\\Skeleton\\Tests\\": "tests/",
 			"Toadsuck\\Skeleton\\Controllers\\": "src/controllers/",
+			"Toadsuck\\Skeleton\\Entities\\": "src/entities/",
+			"Toadsuck\\Skeleton\\Managers\\": "src/managers/",
 			"Toadsuck\\Skeleton\\Models\\": "src/models/",
+			"Toadsuck\\Skeleton\\Utils\\": "src/utils/",
 			"Toadsuck\\Skeleton\\Validators\\": "src/validators/"
 		}
 	},
