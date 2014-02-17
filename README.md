@@ -1,6 +1,8 @@
 # Toadsuck.Skeleton
 
-Skeleton PHP-MVC application implementing the components from the [Toadsuck Project](http://toadsuck.github.io).
+## Skeleton PHP-MVC application implementing the components from the [Toadsuck Project](http://toadsuck.github.io).
+
+[![Total Downloads](https://poser.pugx.org/toadsuck/skeleton/downloads.png)](https://packagist.org/packages/toadsuck/skeleton) [![Latest Stable Version](https://poser.pugx.org/toadsuck/skeleton/v/stable.png)](https://packagist.org/packages/toadsuck/skeleton)
 
 Use this as a clean starting point in your Toadsuck-based projects.
 
