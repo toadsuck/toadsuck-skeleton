@@ -5,7 +5,6 @@ namespace Toadsuck\Skeleton\Controllers;
 use Illuminate\Database\Capsule\Manager as Model;
 use Toadsuck\Core\Controller;
 use Toadsuck\Core\Database as DB;
-use Toadsuck\Skeleton\Models\Captain;
 
 class Home extends Controller
 {
@@ -32,8 +31,5 @@ class Home extends Controller
 	public function index()
 	{
 		$this->template->output('home/index', ['heading' => 'Congratulations, it worked!']);
-
-		// Instead of outputting the rendered content, you could return it:
-		//echo $this->template->render('home/index', ['heading' => 'Congratulations, it worked!']);
 	}
 }
