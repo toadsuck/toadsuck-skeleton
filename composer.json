@@ -24,8 +24,8 @@
 
 	"require": {
 		"php": ">= 5.4",
-		"toadsuck/core": "dev-master",
-		"joshmoody/validation": "dev-master"
+		"toadsuck/core": "0.7.*",
+		"joshmoody/validation": "0.3.*"
 	},
 
 	"require-dev": {
