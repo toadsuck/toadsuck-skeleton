@@ -32,3 +32,10 @@ Then you can create a new Toadsuck Skeleton project:
 ``` bash
 $ composer create-project toadsuck/skeleton your-project-name --stability=dev
 ```
+
+The default base namespace of your new app skelton is Toadsuck\Skeleton. You can easily change the namespace in all files using the provided `install.php` after downloading this project.
+
+``` bash
+php install.php Your\AppNamespace
+```
+> Of course, replace Your\AppNameSpace in the above command with whatever you want to use as your base namespace.
