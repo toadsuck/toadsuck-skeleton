@@ -9,9 +9,8 @@
 			"email": "jgmoody@gmail.com"
 		}
 	],
-
-	"autoload":{
-		"psr-4":{
+	"autoload": {
+		"psr-4": {
 			"Toadsuck\\Skeleton\\Tests\\": "tests/",
 			"Toadsuck\\Skeleton\\Controllers\\": "src/controllers/",
 			"Toadsuck\\Skeleton\\Entities\\": "src/entities/",
@@ -21,17 +20,14 @@
 			"Toadsuck\\Skeleton\\Validators\\": "src/validators/"
 		}
 	},
-
 	"require": {
 		"php": ">= 5.4",
 		"toadsuck/core": "dev-master",
-		"joshmoody/validation": "dev-master"
+		"werx/validation": "dev-master"
 	},
-
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*",
 		"squizlabs/php_codesniffer": "1.*"
 	},
-
 	"minimum-stability": "dev"
 }
